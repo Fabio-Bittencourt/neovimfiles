@@ -79,7 +79,7 @@ require("lazy").setup({
 
         -- sobrescreve/ adiciona mapeamentos locais ao buffer da árvore:
         vim.keymap.set("n", "s", api.node.open.horizontal, opts("Open: Horizontal Split")) -- horizontal
-        vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))   -- vertical
+        vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))     -- vertical
         -- se quiser, reaproveite <CR> e outros:
         -- vim.keymap.set("n", "<CR>", api.node.open.edit, opts("Open"))
       end
@@ -288,6 +288,17 @@ require("lazy").setup({
       })
     end,
   },
+  {
+    'romgrk/barbar.nvim',
+    -- Opcional: Adicione mapeamentos para navegação
+    keys = {
+      -- Ir para o próximo/anterior buffer
+      { '<A-l>',      '<Cmd>BufferNext<CR>',     desc = 'Próximo Buffer' },
+      { '<A-h>',      '<Cmd>BufferPrevious<CR>', desc = 'Buffer Anterior' },
+      -- Fechar o buffer atual
+      { '<Leader>bc', '<Cmd>BufferClose<CR>',    desc = 'Fechar Buffer' },
+    },
+  }
 
 })
 
